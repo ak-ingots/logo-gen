@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.egg-info/
+build/
+dist/
+.mypy_cache/
+.idea/
+.vscode/
+.DS_Store
+
+# Working renders; the committed logo is final-* (see `make logo`)
+logo3d-*.svg
+logo3d-*.png
+grid*.png
+*.zip
