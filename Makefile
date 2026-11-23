@@ -29,6 +29,9 @@ lint:  ## black --check, flake8, mypy --strict
 test:  ## unittest
 	uv run python -m unittest discover -s tests -t .
 
+
+##@ Code
+
 .PHONY: format
 format:  ## Format code with black
 	uv run black $(SRC)
