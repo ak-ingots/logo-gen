@@ -104,7 +104,6 @@ class CliArgs:
     preset: str
 
 
-# ----------------------------------------------------------------- vectors
 def add(a: Vec, b: Vec) -> Vec:
     return (a[0] + b[0], a[1] + b[1], a[2] + b[2])
 
@@ -149,7 +148,6 @@ def rot_y(p: Vec, deg: float) -> Vec:
     return (p[0] * c + p[2] * s, p[1], -p[0] * s + p[2] * c)
 
 
-# ----------------------------------------------------------------- colours
 def hexrgb(h: str) -> tuple[int, ...]:
     return tuple(int(h[i : i + 2], 16) for i in (1, 3, 5))
 
@@ -177,7 +175,6 @@ def shade(colours: Colours, n: Vec) -> str:
     return colours.highlight
 
 
-# ----------------------------------------------------------------- projection
 class Projector:
     """Camera in polar coordinates around `target`, projects world points to 2D."""
 
@@ -211,7 +208,6 @@ class Projector:
         return dot(n, sub(self.pos, center)) > 0
 
 
-# ----------------------------------------------------------------- geometry
 def face_normal(q: Quad) -> Vec:
     return norm(cross(sub(q[1], q[0]), sub(q[3], q[0])))
 
@@ -320,7 +316,6 @@ def label_faces(o: PlacedIngot, cam: Projector) -> list[str]:
     return [sides[0], "top"] if o.on_top else [sides[0]]
 
 
-# ----------------------------------------------------------------- font
 _font = TTFont(FONT)
 _gs, _cmap = _font.getGlyphSet(), _font.getBestCmap()
 
@@ -404,7 +399,6 @@ def label_3d(text: str, q: Quad, u: Vec, v: Vec, scale: float = 1.0) -> list[lis
     ]
 
 
-# ----------------------------------------------------------------- shadow
 def convex_hull(ps: list[tuple[float, float]]) -> list[tuple[float, float]]:
     ps = sorted(set(ps))
     if len(ps) < 3:
@@ -445,7 +439,6 @@ def floor_shadow(
     return out
 
 
-# ----------------------------------------------------------------- render
 def render_svg(camera: Camera, stack: list[Level], size: int = SIZE) -> str:
     placed = layout(stack)
     top_y = max(o.faces["top"][0][1] for o in placed)
