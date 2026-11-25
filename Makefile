@@ -1,9 +1,3 @@
-# Development entrypoint (uv):
-#
-#   make              show the target list
-#   make check        lint + test, what `make check` of ingots-libs runs
-#   make logo         rebuild the final logo (final-pyramid.*)
-
 SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
 .DEFAULT_GOAL := help

@@ -1,8 +1,5 @@
 name: ci
 
-# `make check`, split across jobs so the legs run in parallel. Every check is
-# a `make` target invoked exactly as it is locally.
-
 on:
   pull_request:
     branches: [main]
